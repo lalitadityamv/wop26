@@ -48,13 +48,19 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           {/* institute / IIC / STB — desktop inline */}
-          <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-rust-600/60">
-            {topLogos.map((logo) => (
-              <div key={logo.alt} className="bg-bone/95 rounded-sm px-1.5 py-1">
-                <img src={logo.src} alt={logo.alt} title={logo.alt} className="h-7 w-auto max-w-[60px] object-contain" />
-              </div>
-            ))}
-          </div>
+          {/* institute / IIC / STB: always visible, scaled down on small screens */}
+<div className="flex items-center gap-1 sm:gap-2 sm:pl-3 sm:border-l border-rust-600/60">
+  {topLogos.map((logo) => (
+    <div key={logo.alt} className="bg-bone/95 rounded-sm px-1 py-0.5 sm:px-1.5 sm:py-1">
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        title={logo.alt}
+        className="h-5 w-auto max-w-[40px] sm:h-7 sm:max-w-[60px] object-contain"
+      />
+    </div>
+  ))}
+</div>
           <button
             onClick={() => setOpen((o) => !o)}
             className="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5"
@@ -69,14 +75,7 @@ export default function Navbar() {
 
       {open && (
         <div className="md:hidden bg-rust-950/95 backdrop-blur border-t border-rust-700/60 px-4 py-4 flex flex-col gap-4">
-          {/* institute / IIC / STB — mobile, inside the menu so the collapsed bar stays clean */}
-          <div className="flex items-center gap-3 pb-3 border-b border-rust-700/50">
-            {topLogos.map((logo) => (
-              <div key={logo.alt} className="bg-bone/95 rounded-sm px-1.5 py-1">
-                <img src={logo.src} alt={logo.alt} title={logo.alt} className="h-6 w-auto max-w-[52px] object-contain" />
-              </div>
-            ))}
-          </div>
+          
           {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="font-mono text-sm tracking-wider text-bone/85">
               {l.label.toUpperCase()}
