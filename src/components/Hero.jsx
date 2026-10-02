@@ -21,7 +21,7 @@ export default function Hero() {
           transition={{ duration: 0.7 }}
           className="font-mono text-[11px] sm:text-xs tracking-[0.35em] text-brass-300 mb-4"
         >
-          IEEE BMSIT&amp;M STB · SPS · GRSS · CS
+          IEEE BMSITM STB · CS · SPS · GRSS
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
