@@ -22,11 +22,11 @@ export const allSocieties = [
   { code: 'CIS', name: 'Computational Intelligence Society', logo: cis },
   { code: 'PES', name: 'Power & Energy Society', logo: pes },
   { code: 'WIE', name: 'Women in Engineering', logo: wie },
-  { code: 'ITSOC', name: 'Information Theory Society', logo: infoTheory },
+  { code: 'ITS', name: 'Information Theory Society', logo: infoTheory },
   { code: 'SPS', name: 'Signal Processing Society', logo: sps },
   { code: 'EMBS', name: 'Engineering in Medicine & Biology Society', logo: embs },
   { code: 'PHO', name: 'Photonics Society', logo: photonics },
-  { code: 'AP/MTT-S', name: 'Antennas & Propagation / Microwave Theory & Techniques', logo: apmtt },
+  { code: 'APS/MTTS', name: 'Antennas & Propagation / Microwave Theory & Techniques', logo: apmtt },
   { code: 'RAS', name: 'Robotics & Automation Society', logo: ras },
   { code: 'CAS', name: 'Circuits & Systems Society', logo: cas },
 ]

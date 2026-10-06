@@ -13,11 +13,7 @@ const contacts = [
 export default function Footer() {
   return (
     <footer className="bg-rust-950 border-t border-rust-700/60 pt-16 pb-8 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-3 mb-12 pb-10 border-b border-rust-700/50">
-        <div className="bg-bone/95 rounded-sm px-2 py-1.5"><img src={instituteLogo} alt="BMS Institute of Technology and Management" className="h-9 w-auto" /></div>
-        <div className="bg-bone/95 rounded-sm px-2 py-1.5"><img src={iicLogo} alt="Institution's Innovation Council" className="h-9 w-auto" /></div>
-        <div className="bg-bone/95 rounded-sm px-2 py-1.5"><img src={stbLogo} alt="IEEE BMSIT&M Student Branch" className="h-9 w-auto" /></div>
-      </div>
+      
 
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 gap-10 sm:gap-6 mb-12">
         <div>

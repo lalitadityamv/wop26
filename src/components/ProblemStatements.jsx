@@ -20,7 +20,7 @@ export default function ProblemStatements() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-14">
         <span className="font-mono text-xs tracking-[0.3em] text-brass-300">03 / PROBLEM STATEMENTS</span>
         <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 text-bone">
-  {problemStatements.length} challenges, {contributingSocieties.length} societies.
+  {problemStatements.length} challenges, 15 societies.
 </h2>
 <p className="text-bone/60 text-sm sm:text-base mt-4 max-w-2xl">
   Every IEEE society chapter at BMSIT&amp;M brought its own problem statements, split into

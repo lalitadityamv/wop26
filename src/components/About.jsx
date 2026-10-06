@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const stats = [
   { label: 'Weeks', value: '8' },
-  { label: 'Societies', value: '14' },
+  { label: 'Societies', value: '15' },
   { label: 'Problem Statements', value: '35+' },
   { label: 'Tracks', value: 'HW / SW' },
 ]
