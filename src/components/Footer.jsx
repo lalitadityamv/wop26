@@ -39,10 +39,10 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto mb-12">
   <h4 className="font-mono text-xs tracking-widest text-brass-300 mb-4 uppercase">IEEE Societies at BMSIT&amp;M</h4>
-  <div className="flex flex-wrap gap-3">
+  <div className="flex flex-wrap gap-2 sm:gap-3">
     {allSocieties.map((s) => (
-      <div key={s.code} className="bg-bone/95 rounded-sm px-2 py-1.5">
-        <img src={s.logo} alt={s.name} title={s.name} className="h-10 w-auto" />
+      <div key={s.code} className="bg-bone/95 rounded-sm px-1.5 py-1 sm:px-2 sm:py-1.5">
+        <img src={s.logo} alt={s.name} title={s.name} className="h-6 w-auto sm:h-10" />
       </div>
     ))}
   </div>
