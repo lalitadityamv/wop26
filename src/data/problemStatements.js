@@ -117,13 +117,13 @@ export const problemStatements = [
 
   // ITSOC
   {
-    id: 'ITSOC-SW-01', society: 'ITSOC', track: 'SW',
+    id: 'ITS-SW-01', society: 'ITS', track: 'SW',
     title: 'Project NIGHTHAWK: Self-Healing Data Network',
     summary: 'A decentralised file transfer that uses erasure or fountain codes to survive lost nodes and packets.',
     details: `Design a decentralised file-transfer system that can reliably deliver files even when a significant portion of the network becomes unavailable or packets are lost. Instead of simply replicating files, the system should use Reed-Solomon / erasure coding or fountain codes to divide data into recoverable fragments and intelligently distribute them across peers.\n\nThe system should detect missing or corrupted fragments and reconstruct the original file without retransmitting the entire file. Evaluate storage overhead, recovery probability, bandwidth used, reconstruction time and tolerance to node and packet failures.`,
   },
   {
-    id: 'ITSOC-SW-02', society: 'ITSOC', track: 'SW',
+    id: 'ITS-SW-02', society: 'ITS', track: 'SW',
     title: 'Project GHOSTCHAIN: A Blockchain That Knows What to Forget',
     summary: 'Verify data availability without storing everything, using erasure codes, commitments and sampling.',
     details: `Design a blockchain-based data system where large data is encoded, distributed and verified without every node storing the complete dataset. Use erasure coding, cryptographic commitments and probabilistic data availability sampling to allow lightweight nodes to verify that data is available while downloading only a small fraction of it.\n\nBuild a simulator that introduces unavailable and malicious nodes and measure data-recovery probability, communication overhead, storage overhead and verification cost.`,
@@ -137,25 +137,25 @@ export const problemStatements = [
     details: `Industrial machines such as motors, pumps, compressors, gearboxes, and conveyor systems can develop mechanical faults that gradually alter their acoustic characteristics before a major failure occurs. However, continuously monitoring a large number of machines using conventional wired sensing systems can be costly and difficult to scale.\n\nThis project aims to develop a low-cost wireless network of acoustic sensor nodes that captures and locally processes machine sounds to identify abnormal acoustic patterns and wirelessly report them to a central monitoring system. The system can be extended to classify different machine conditions and provide early warnings for potential faults.`,
   },
   {
-    id: 'SPS-SW-01', society: 'SPS', track: 'SW',
+    id: 'SPS-HW-02', society: 'SPS', track: 'HW',
     title: 'HOLEPOTLUCK',
     summary: 'Crowdsourced detection and mapping of speed bumps and potholes from smartphone motion sensors.',
     details: `Design a crowdsourced road safety system that uses smartphone accelerometer and gyroscope data to detect, classify, and map unmarked speed bumps and potholes.\n\nThe core technical challenge requires building an algorithm that accurately isolates true road anomalies while filtering out false positives caused by phone handling inside a vehicle. Teams must process telemetry data, implement spatial clustering to verify hazard locations, and deliver a basic dashboard visualising the map-based warning system.`,
   },
   {
-    id: 'SPS-SW-02', society: 'SPS', track: 'SW',
+    id: 'SPS-SW-01', society: 'SPS', track: 'SW',
     title: 'Motion-Robust Heart Rate Tracking from Wrist PPG',
     summary: 'A signal processing pipeline that estimates BPM from noisy wrist PPG using the accelerometer as a motion reference.',
     details: `Smartwatches estimate heart rate using photoplethysmography (PPG), where reflected light varies with blood volume. At rest the signal is clean. During exercise, wrist motion adds artifacts that overlap the heart-rate band (about 0.7-3.5 Hz), so a plain FFT peak-pick often locks onto the arm-swing cadence instead of the pulse.\n\nBuild a signal processing pipeline that estimates heart rate (BPM) every 2 seconds from noisy wrist PPG, using the accelerometer as a reference for motion noise. Everything runs on recorded data and there is no hardware involved.`,
   },
   {
-    id: 'SPS-HW-02', society: 'SPS', track: 'HW',
+    id: 'SPS-HW-03', society: 'SPS', track: 'HW',
     title: 'WATERTRACE: Acoustic Water Leak Detection',
     summary: 'Detect and classify pipeline leaks from acoustic or vibration signals despite noise and flow changes.',
     details: `Develop a system that can detect water leakage in pipelines by analysing the acoustic or vibration signals produced during water flow. The system should be able to distinguish normal flow conditions from abnormal patterns caused by leaks, while accounting for surrounding noise and variations in flow.\n\nTeams can explore signal processing and machine learning techniques to identify and classify different leak conditions. The solution could also be extended to estimate the location or severity of a leak using multiple sensing points.`,
   },
   {
-    id: 'SPS-SW-03', society: 'SPS', track: 'SW',
+    id: 'SPS-HW-04', society: 'SPS', track: 'HW',
     title: 'NOIR: Noise-Aware Object Identification from RAW Data',
     summary: 'Detect objects in the dark by processing RAW sensor data from ordinary low-cost cameras.',
     details: `Low-light cameras suffer from weak signals and sensor noise, causing conventional detectors to miss objects. While infrared and thermal cameras can improve visibility in darkness, they require additional specialised hardware.\n\nNOIR explores whether RAW sensor data from existing low-cost cameras can be directly processed to separate useful scene information from noise and improve object detection in dark environments.`,
@@ -181,27 +181,27 @@ export const problemStatements = [
     details: `Parkinsonian symptoms such as tremors and movement instability can vary throughout the day and may not be captured during short clinical visits.\n\nDevelop a wearable system that analyses upper-limb movements to distinguish voluntary and involuntary motion, measure tremor characteristics, and generate a time-based profile of the user's motor activity.`,
   },
 
-  // PHO
+  // PHS
   {
-    id: 'PHO-HW-01', society: 'PHO', track: 'HW',
+    id: 'PHS-HW-01', society: 'PHS', track: 'HW',
     title: 'The Sixth Sense',
     summary: 'A wearable that senses heat, UV or distance and turns it into sound, vibration or visual feedback.',
     details: `Build a wearable system that detects information humans cannot naturally perceive, such as heat, UV or distance, and converts it into sound, vibration or visual feedback.`,
   },
   {
-    id: 'PHO-HW-02', society: 'PHO', track: 'HW',
+    id: 'PHS-HW-02', society: 'PHS', track: 'HW',
     title: 'PathLight',
     summary: 'A portable obstacle and unsafe-path detector giving audio or vibration guidance to visually impaired users.',
     details: `Build a portable device that detects obstacles, distance and unsafe paths and provides audio or vibration-based guidance for visually impaired users.`,
   },
   {
-    id: 'PHO-SW-01', society: 'PHO', track: 'SW',
+    id: 'PHS-SW-01', society: 'PHS', track: 'SW',
     title: 'Photonic Chip Failure Prediction and Virtual Testing',
     summary: 'Simulate manufacturing variation in photonic chips, predict failures and suggest design fixes.',
     details: `Develop a software tool that simulates manufacturing variations in photonic chips, predicts failures and suggests design improvements before manufacturing.`,
   },
   {
-    id: 'PHO-SW-02', society: 'PHO', track: 'SW',
+    id: 'PHS-SW-02', society: 'PHS', track: 'SW',
     title: 'Quantum-Secured Communication Simulator',
     summary: 'Two AI agents exchange keys using BB84 and detect eavesdropping through QBER.',
     details: `Develop a software simulator where two AI agents communicate using BB84-based quantum key distribution and detect eavesdropping using QBER.`,
@@ -209,13 +209,13 @@ export const problemStatements = [
 
   // AP/MTT-S
   {
-    id: 'APMTT-HW-01', society: 'AP/MTT-S', track: 'HW',
+    id: 'APS/MTTS-HW-01', society: 'APS/MTTS', track: 'HW',
     title: '2.4 GHz RF Intrusion Detection System',
     summary: 'Hand-built cantennas and RSSI tracking that sound an alarm when a person breaks the beam.',
     details: `Design and deploy a localised 2.4 GHz Radio Frequency Intrusion Detection System (RF-IDS). Construct hand-fabricated metallic waveguide antennas (cantennas) to collimate the signal into a narrow beam.\n\nThe system must trigger a physical alarm based on real-time RSSI attenuation when a human breaches the line of sight, using rolling-average firmware algorithms to filter ambient Wi-Fi noise and reject false positives.`,
   },
   {
-    id: 'APMTT-HW-02', society: 'AP/MTT-S', track: 'HW',
+    id: 'APS/MTTS-HW-02', society: 'APS/MTTS', track: 'HW',
     title: 'Non-Contact RF Soil Moisture Sensor',
     summary: 'Sub-GHz RSSI attenuation through soil, calibrated by regression to predict water content.',
     details: `Engineer a non-contact RF soil moisture sensor using sub-GHz telemetry. Construct waterproof, PVC-encapsulated half-wave dipole antennas to prevent galvanic corrosion.\n\nMeasure continuous RSSI attenuation across an agricultural soil medium to plot an empirical calibration curve, using linear or polynomial regression models to accurately predict volumetric water content.`,

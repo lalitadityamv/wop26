@@ -25,7 +25,7 @@ export const allSocieties = [
   { code: 'ITS', name: 'Information Theory Society', logo: infoTheory },
   { code: 'SPS', name: 'Signal Processing Society', logo: sps },
   { code: 'EMBS', name: 'Engineering in Medicine & Biology Society', logo: embs },
-  { code: 'PHO', name: 'Photonics Society', logo: photonics },
+  { code: 'PHS', name: 'Photonics Society', logo: photonics },
   { code: 'APS/MTTS', name: 'Antennas & Propagation / Microwave Theory & Techniques', logo: apmtt },
   { code: 'RAS', name: 'Robotics & Automation Society', logo: ras },
   { code: 'CAS', name: 'Circuits & Systems Society', logo: cas },
