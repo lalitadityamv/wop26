@@ -5,6 +5,7 @@ import { problemStatements } from '../data/problemStatements'
 
 const MIN_TEAM = 2
 const MAX_TEAM = 4
+const MAX_PS = 2
 
 const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_GROUP_URL
 
@@ -40,19 +41,37 @@ export default function Register() {
   const [teamName, setTeamName] = useState('')
   const [lead, setLead] = useState(emptyLead)
   const [members, setMembers] = useState([{ ...emptyMember }])
-  const [psId, setPsId] = useState('')
+
+  const [track, setTrack] = useState('given') // given | open
+  const [selectedPs, setSelectedPs] = useState([]) // up to 2 IDs, first one is choice 1
+  const [psQuery, setPsQuery] = useState('')
+  const [openTitle, setOpenTitle] = useState('')
+  const [openDescription, setOpenDescription] = useState('')
+
   const [status, setStatus] = useState('idle') // idle | sending | done
   const [error, setError] = useState('')
   const [registeredTeamName, setRegisteredTeamName] = useState('')
+  const [registeredChoice, setRegisteredChoice] = useState('')
 
   const teamSize = 1 + members.length
-  const psMatch = problemStatements.find((p) => p.id === psId)
-  const suggestions = problemStatements.filter((p) => p.id.includes(psId))
+  const query = psQuery.trim().toUpperCase()
+  const suggestions = problemStatements.filter(
+    (p) => p.id.includes(query) || (p.title || '').toUpperCase().includes(query)
+  )
+  const psFull = selectedPs.length >= MAX_PS
+
   const setLeadField = (k, v) => setLead((l) => ({ ...l, [k]: v }))
   const setMemberField = (i, k, v) =>
     setMembers((ms) => ms.map((m, idx) => (idx === i ? { ...m, [k]: v } : m)))
   const addMember = () => teamSize < MAX_TEAM && setMembers((ms) => [...ms, { ...emptyMember }])
   const removeMember = (i) => teamSize > MIN_TEAM && setMembers((ms) => ms.filter((_, idx) => idx !== i))
+
+  const togglePs = (id) =>
+    setSelectedPs((cur) => {
+      if (cur.includes(id)) return cur.filter((x) => x !== id)
+      if (cur.length >= MAX_PS) return cur
+      return [...cur, id]
+    })
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -64,9 +83,27 @@ export default function Register() {
       return
     }
 
-    if (!psMatch) {
-      setError('Enter a valid problem statement ID, for example SPS-SW-01.')
-      return
+    let psIds = []
+    let title = ''
+    let description = ''
+
+    if (track === 'given') {
+      if (selectedPs.length < 1 || selectedPs.length > MAX_PS) {
+        setError('Pick 1 or 2 problem statements, or switch to Open innovation.')
+        return
+      }
+      psIds = selectedPs
+    } else {
+      title = openTitle.trim()
+      description = openDescription.trim()
+      if (title.length < 3) {
+        setError('Give your project a title with at least 3 characters.')
+        return
+      }
+      if (description.length < 20) {
+        setError('Describe your project in at least 20 characters so we can understand the idea.')
+        return
+      }
     }
 
     const everyone = [lead, ...members]
@@ -79,7 +116,10 @@ export default function Register() {
     setStatus('sending')
     const { error: rpcError } = await supabase.rpc('register_team', {
       p_team_name: cleanTeamName,
-      p_problem_statement_id: psId,
+      p_track: track,
+      p_problem_statement_ids: psIds,
+      p_open_title: track === 'open' ? title : null,
+      p_open_description: track === 'open' ? description : null,
       p_participants: everyone, // first entry is treated as the lead
     })
 
@@ -101,6 +141,7 @@ export default function Register() {
     }
 
     setRegisteredTeamName(cleanTeamName)
+    setRegisteredChoice(track === 'open' ? `Open innovation: ${title}` : psIds.join(' and '))
     setTeamName('')
     setStatus('done')
   }
@@ -115,7 +156,7 @@ export default function Register() {
           </h2>
           <p className="text-bone/65 text-sm sm:text-base mb-10 max-w-xl mx-auto">
             Teams of 2 to 4. Registration closes before Week 0 kickoff, so lock in your team and
-            preferred problem statement early.
+            your project early.
           </p>
         </div>
 
@@ -131,6 +172,7 @@ export default function Register() {
               <span className="font-display font-bold text-brass-300">{registeredTeamName}</span>{' '}
               has been registered successfully. Watch your email for the next steps.
             </p>
+            <p className="font-mono text-xs text-bone/50 mt-3 break-words">{registeredChoice}</p>
 
             {WHATSAPP_URL && (
               <div className="mt-8">
@@ -271,48 +313,149 @@ export default function Register() {
               )}
             </div>
 
-            {/* problem statement */}
-            <fieldset className="flex flex-col gap-2">
-              <legend className="font-display font-bold text-lg text-bone mb-1">Problem statement</legend>
-              <Field label="Problem statement ID">
-                <input
-                  required
-                  value={psId}
-                  onChange={(e) => setPsId(e.target.value.replace(/\s/g, '').toUpperCase())}
-                  placeholder="Type or tap an ID, e.g. SPS-SW-01"
-                  autoCapitalize="characters"
-                  autoCorrect="off"
-                  spellCheck={false}
-                  className={`${inputCls} font-mono`}
-                />
-              </Field>
+            {/* project: given problem statements OR open innovation */}
+            <fieldset className="flex flex-col gap-4">
+              <legend className="font-display font-bold text-lg text-bone mb-1">Your project</legend>
 
-              {psMatch ? (
-                <p className="text-xs text-brass-300">✓ {psMatch.title}</p>
-              ) : psId ? (
-                <p className="text-xs text-bone/40">No match yet. Pick one from the list below.</p>
-              ) : null}
-
-              <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto pr-1">
-                {suggestions.map((p) => (
+              <div className="grid grid-cols-2 gap-2" role="group" aria-label="Choose how you want to participate">
+                {[
+                  ['given', 'Given problem statements'],
+                  ['open', 'Open innovation'],
+                ].map(([key, label]) => (
                   <button
-                    key={p.id}
+                    key={key}
                     type="button"
-                    onClick={() => setPsId(p.id)}
-                    className={`font-mono text-[10px] tracking-wider px-2.5 py-1.5 rounded-sm border transition ${
-                      p.id === psId
+                    aria-pressed={track === key}
+                    onClick={() => { setTrack(key); setError('') }}
+                    className={`px-3 py-3 rounded-sm border font-display font-bold text-sm tracking-wide transition ${
+                      track === key
                         ? 'bg-brass-400 text-rust-950 border-brass-400'
                         : 'border-bone/25 text-bone/60 hover:border-brass-400/60'
                     }`}
                   >
-                    {p.id}
+                    {label}
                   </button>
                 ))}
               </div>
 
-              <p className="text-bone/40 text-xs">
-                Several teams can choose the same problem statement. Read the full briefs in the section above.
-              </p>
+              {track === 'given' ? (
+                <div className="flex flex-col gap-3">
+                  <p className="text-bone/50 text-xs">
+                    Pick 1 or 2 problem statements from our list. The first one you tap is your first
+                    choice. Several teams can pick the same statement.
+                  </p>
+
+                  {selectedPs.length > 0 && (
+                    <ol className="flex flex-col gap-2">
+                      {selectedPs.map((id, i) => {
+                        const ps = problemStatements.find((p) => p.id === id)
+                        return (
+                          <li key={id}
+                            className="flex items-start justify-between gap-3 border border-brass-400/40 rounded-sm px-3 py-2">
+                            <div className="min-w-0">
+                              <span className="font-mono text-[10px] tracking-widest text-brass-300 uppercase">
+                                Choice {i + 1}
+                              </span>
+                              <p className="font-mono text-xs text-bone">{id}</p>
+                              {ps?.title && <p className="text-xs text-bone/60">{ps.title}</p>}
+                            </div>
+                            <button type="button" onClick={() => togglePs(id)}
+                              className="font-mono text-[10px] text-bone/40 hover:text-brass-400 shrink-0">
+                              REMOVE
+                            </button>
+                          </li>
+                        )
+                      })}
+                    </ol>
+                  )}
+
+                  <Field label={`Search problem statements (${selectedPs.length} / ${MAX_PS} chosen)`}>
+                    <input
+                      value={psQuery}
+                      onChange={(e) => setPsQuery(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault()
+                          const exact = problemStatements.find((p) => p.id === query)
+                          if (exact && !selectedPs.includes(exact.id)) togglePs(exact.id)
+                        }
+                      }}
+                      placeholder="Type an ID or a keyword, e.g. SPS-SW-01"
+                      autoCapitalize="characters"
+                      autoCorrect="off"
+                      spellCheck={false}
+                      className={`${inputCls} font-mono`}
+                    />
+                  </Field>
+
+                  {query && suggestions.length === 0 && (
+                    <p className="text-xs text-bone/40">No match. Try a different ID or keyword.</p>
+                  )}
+                  {psFull && (
+                    <p className="text-xs text-brass-300">
+                      You have picked 2. Remove one to choose a different statement.
+                    </p>
+                  )}
+
+                  <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto pr-1">
+                    {suggestions.map((p) => {
+                      const chosen = selectedPs.includes(p.id)
+                      return (
+                        <button
+                          key={p.id}
+                          type="button"
+                          onClick={() => togglePs(p.id)}
+                          disabled={!chosen && psFull}
+                          className={`font-mono text-[10px] tracking-wider px-2.5 py-1.5 rounded-sm border transition disabled:opacity-30 ${
+                            chosen
+                              ? 'bg-brass-400 text-rust-950 border-brass-400'
+                              : 'border-bone/25 text-bone/60 hover:border-brass-400/60'
+                          }`}
+                        >
+                          {p.id}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  <p className="text-bone/40 text-xs">
+                    Read the full briefs in the section above before choosing.
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-4">
+                  <p className="text-bone/50 text-xs">
+                    Bring your own idea instead of a given statement. Describe the problem you want to
+                    solve and how you plan to approach it.
+                  </p>
+                  <Field label="Project title">
+                    <input
+                      required
+                      minLength={3}
+                      maxLength={120}
+                      placeholder="e.g. Low cost air quality monitor for classrooms"
+                      className={inputCls}
+                      value={openTitle}
+                      onChange={(e) => setOpenTitle(e.target.value)}
+                    />
+                  </Field>
+                  <Field label="Project description">
+                    <textarea
+                      required
+                      minLength={20}
+                      maxLength={2000}
+                      rows={6}
+                      placeholder="What problem are you solving, who is it for, and what will you build?"
+                      className={`${inputCls} resize-y min-h-[140px]`}
+                      value={openDescription}
+                      onChange={(e) => setOpenDescription(e.target.value)}
+                    />
+                    <span className="block text-right font-mono text-[10px] text-bone/40 mt-1">
+                      {openDescription.length} / 2000
+                    </span>
+                  </Field>
+                </div>
+              )}
             </fieldset>
 
             {error && (
