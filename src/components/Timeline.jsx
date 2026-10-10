@@ -1,11 +1,26 @@
 import { motion } from 'framer-motion'
 
 const stops = [
-  { date: 'Oct 5', title: 'Registrations Open', desc: 'Teams form, problem statements drop, kickoff briefing.' },
-  { date: 'Oct 10', title: 'Track Lock-in', desc: 'Confirm your society, problem statement, and HW / SW track.' },
-  { date: 'Oct 20', title: 'Project PPT Submission', desc: 'Submit a presentation covering your approach, design and planned prototype.' },
-  { date: 'Oct 31', title: 'Selected Teams Announced', desc: 'Shortlisted teams move into build. Weekly mentor check-ins begin.' },
-  { date: 'Dec', title: 'Demo Day', desc: 'Final showcase, judging, and awards. Date to be announced.' },
+  {
+    date: 'Oct 14–31',
+    title: 'Registrations open',
+    desc: 'Form a team of 2 to 4, pick your problem statements or bring your own idea, and register before kickoff.',
+  },
+  {
+    date: 'Nov 1–4',
+    title: 'Society pitches & team announcement',
+    desc: 'Pitch your approach, design and planned prototype to the societies. Selected teams are announced and confirm their society, problem statement and HW / SW track.',
+  },
+  {
+    date: 'Nov 5–Dec 3',
+    title: 'Build phase',
+    desc: 'Selected teams build their prototype, with weekly mentor check-ins along the way.',
+  },
+  {
+    date: 'Dec 4',
+    title: 'Final demo day',
+    desc: 'Teams present their working prototypes and the winners are announced.',
+  },
 ]
 
 export default function Timeline() {
