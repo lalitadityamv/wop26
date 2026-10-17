@@ -23,9 +23,12 @@ export default function ProblemStatements() {
   {problemStatements.length} challenges, 15 societies.
 </h2>
 <p className="text-bone/60 text-sm sm:text-base mt-4 max-w-2xl">
+  <p className="text-bone/60 text-sm sm:text-base mt-4 max-w-2xl">
   Every IEEE society chapter at BMSIT&amp;M brought its own problem statements, split into
-  hardware and software tracks. Scroll the preview below, click any card for a quick look,
-  or browse everything by society and track.
+  hardware and software tracks, and the projects teams build for them will be funded.
+  Scroll the preview below, click any card for a quick look, or browse everything by
+  society and track.
+</p>
 </p>
       </div>
 

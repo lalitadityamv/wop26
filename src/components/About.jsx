@@ -36,12 +36,13 @@ export default function About() {
   className="text-bone/70 text-sm sm:text-base leading-relaxed max-w-2xl"
 >
   Winter of Projects is an 8-week build program organised by the IEEE BMSIT&amp;M Student
-  Branch together with three of its society chapters: Signal Processing (SPS), Geoscience
-  &amp; Remote Sensing (GRSS), and the Computer Society (CS). The problem statements come
-  from every society chapter on campus, split into hardware and software tracks, so you
-  pick a challenge that actually matches the tools you want to get good at. Each problem
-  statement is mentored by members of the society that proposed it, with weekly check-ins,
-  and the program closes with a demo day judged by faculty and industry reviewers.
+Branch together with three of its society chapters: Signal Processing (SPS), Geoscience
+&amp; Remote Sensing (GRSS), and the Computer Society (CS). The problem statements come
+from every society chapter on campus, split into hardware and software tracks, so you
+pick a challenge that actually matches the tools you want to get good at. Each problem
+statement is mentored by members of the society that proposed it, with weekly check-ins,
+and the projects teams build during the program will be funded. The program closes with
+a demo day judged by faculty and industry reviewers.
 </motion.p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-14">

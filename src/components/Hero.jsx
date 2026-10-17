@@ -46,7 +46,8 @@ export default function Hero() {
   className="mt-6 text-sm sm:text-base text-bone/70 max-w-xl mx-auto"
 >
   Eight weeks in the workshop. Pick a problem statement from any IEEE society, pick a track,
-  and build something that runs, with society's members mentoring you along the way.
+  and build something that runs. Society members mentor you along the way, and{' '}
+  <span className="font-bold text-brass-300">the projects are funded</span>.
 </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
