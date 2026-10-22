@@ -62,11 +62,11 @@ export const problemStatements = [
   },
 
   // CIS
-  {
+    {
     id: 'CIS-SW-01', society: 'CIS', track: 'SW',
-    title: 'Swarm Fighters',
-    summary: 'Simulate a spreading forest fire contained by decentralised swarm firefighter agents.',
-    details: `Develop a simulation of a dynamically spreading forest fire in which a swarm of autonomous firefighter agents collaboratively works to contain the fire without centralised control. Each agent should make decisions based on local environmental information and interactions with neighbouring agents, using swarm-intelligence principles such as collective behaviour, decentralised coordination, and adaptive task allocation.\n\nThe system should provide a real-time visualisation of fire propagation and firefighter movement, and evaluate the effectiveness of the swarm-based strategy against baseline approaches such as random or purely rule-based movement using metrics such as containment time, percentage of area burned, and resource utilisation.`,
+    title: 'Air-Control: Gesture-Powered Games and ISL Recognition',
+    summary: 'A webcam system that controls games with hand gestures and turns Indian Sign Language letters into live text.',
+    details: `Develop a webcam-based system that allows users to control games using hand gestures and recognise Indian Sign Language (ISL) alphabets, converting them into real-time text.\n\nUsing MediaPipe and OpenCV, teams must track hand movements, build an interactive gesture-controlled game, and train a machine learning model to recognise at least 10 ISL letters or gestures.\n\nThe system must run smoothly on a standard laptop CPU and accurately recognise gestures from new users.\n\nKey Requirements:\n- Build a gesture-controlled game without a keyboard or mouse.\n- Recognise at least 10 ISL letters or gestures.\n- Collect gesture data from at least 5 consenting people.\n- Train a classifier and compare it with rule-based recognition.\n- Convert recognised signs into stable on-screen text.\n- Evaluate accuracy, FPS, and performance on unseen users.\n\nBonus Features: Full ISL alphabet, two-hand gestures, word recognition, and text-to-speech.\n\nDeliverables: GitHub repository, trained model, dataset description, working demo, evaluation report, and short demo video.`,
   },
   {
     id: 'CIS-HW-01', society: 'CIS', track: 'HW',
