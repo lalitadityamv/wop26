@@ -46,6 +46,24 @@ export const problemStatements = [
     summary: 'Predict link quality and switch automatically between Wi-Fi, BLE and LoRa, then benchmark against fixed links.',
     details: `Develop an intelligent wireless communication system that predicts communication quality at a given location using parameters such as RSSI, packet loss, latency, distance, obstacles and environmental conditions, and automatically selects the most suitable communication technology such as Wi-Fi, BLE or LoRa.\n\nThe system should dynamically switch communication modes when the current link becomes unreliable while considering reliability, latency, range and energy consumption.\n\nStudents will experimentally compare fixed Wi-Fi, BLE and LoRa communication against the proposed adaptive approach and evaluate packet delivery ratio, latency, throughput, energy consumption, switching time and prediction accuracy.`,
   },
+    {
+    id: 'COMSOC-SW-01', society: 'ComSoc', track: 'SW',
+    title: 'MsgMind: Smart Message Prioritizer',
+    summary: 'A messaging dashboard that sorts messages into urgent, important and general, with a summary of pending actions.',
+    details: `Important messages get buried under casual conversations, group notifications, and promotional messages, causing users to miss deadlines and urgent updates.\n\nBuild a messaging dashboard that categorizes messages as urgent, important, and general, with a summary of pending actions.`,
+  },
+  {
+    id: 'COMSOC-SW-02', society: 'ComSoc', track: 'SW',
+    title: 'CampusCast: Smart Campus Announcements',
+    summary: 'A central announcement platform that filters updates by department, year, club and urgency.',
+    details: `Students often miss important announcements because information is spread across multiple groups, notice boards, and communication channels.\n\nBuild a centralized announcement platform that filters updates by department, year, club, and urgency.`,
+  },
+  {
+    id: 'COMSOC-SW-03', society: 'ComSoc', track: 'SW',
+    title: 'SignalMap: Intelligent Signal Coverage Analyzer',
+    summary: 'An app that records signal strength, plots it on a map or floor plan and finds dead zones.',
+    details: `Users often experience weak or inconsistent Wi-Fi and mobile connectivity but cannot easily identify where signal quality deteriorates.\n\nBuild an app that records signal-strength measurements, plots them on a map or floor plan, and identifies dead zones.`,
+  },
 
   // CS
   {
