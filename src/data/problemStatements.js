@@ -45,6 +45,18 @@ export const problemStatements = [
     title: 'AdaptLink: Adaptive Multi-Mode Wireless System',
     summary: 'Predict link quality and switch automatically between Wi-Fi, BLE and LoRa, then benchmark against fixed links.',
     details: `Develop an intelligent wireless communication system that predicts communication quality at a given location using parameters such as RSSI, packet loss, latency, distance, obstacles and environmental conditions, and automatically selects the most suitable communication technology such as Wi-Fi, BLE or LoRa.\n\nThe system should dynamically switch communication modes when the current link becomes unreliable while considering reliability, latency, range and energy consumption.\n\nStudents will experimentally compare fixed Wi-Fi, BLE and LoRa communication against the proposed adaptive approach and evaluate packet delivery ratio, latency, throughput, energy consumption, switching time and prediction accuracy.`,
+  },  
+  {
+    id: 'COMSOC-HW-03', society: 'ComSoc', track: 'HW',
+    title: 'Reliable Wireless Communication for Drinking Water Quality Monitoring',
+    summary: 'Low-power wireless nodes that send water-quality readings and alerts to a central receiver over long distances and weak links.',
+    details: `Changes in drinking-water quality can go unnoticed between periodic tests, especially when water is supplied through multiple sources and storage tanks spread across different locations. Manual testing provides only occasional snapshots, while delays in transmitting readings from distant monitoring points can prevent abnormal water-quality changes from being identified promptly.\n\nThe challenge is to maintain reliable, low-power wireless communication between distributed water-quality monitoring points and a central receiver, ensuring that readings and alerts reach the receiver even over long distances or when connectivity is weak.\n\nA prototype can demonstrate multiple monitoring nodes, wireless data transmission, and alert delivery when simulated water-quality readings cross predefined limits.`,
+  },
+  {
+    id: 'COMSOC-HW-04', society: 'ComSoc', track: 'HW',
+    title: 'Multi-Network Communication for Pothole Monitoring and Repair Tracking',
+    summary: 'A hardware link using multiple cellular networks and well-placed antennas to report road damage and repair status reliably.',
+    details: `Bengaluru's pothole problem is not just identifying damaged roads, but maintaining reliable communication between scattered road locations and the authorities responsible for repairs. Road-condition updates from different areas can become fragmented when field data depends on a single cellular connection with inconsistent coverage.\n\nA hardware-based communication solution using multiple cellular network links and strategically positioned antennas could provide more resilient data transmission, enabling road-damage information and repair-status updates to reach a central monitoring point reliably.`,
   },
     {
     id: 'COMSOC-SW-01', society: 'ComSoc', track: 'SW',
