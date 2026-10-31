@@ -167,13 +167,13 @@ export const problemStatements = [
     details: `Industrial machines such as motors, pumps, compressors, gearboxes, and conveyor systems can develop mechanical faults that gradually alter their acoustic characteristics before a major failure occurs. However, continuously monitoring a large number of machines using conventional wired sensing systems can be costly and difficult to scale.\n\nThis project aims to develop a low-cost wireless network of acoustic sensor nodes that captures and locally processes machine sounds to identify abnormal acoustic patterns and wirelessly report them to a central monitoring system. The system can be extended to classify different machine conditions and provide early warnings for potential faults.`,
   },
   {
-    id: 'SPS-HW-02', society: 'SPS', track: 'HW',
+    id: 'SPS-SW-01', society: 'SPS', track: 'SW',
     title: 'HOLEPOTLUCK',
     summary: 'Crowdsourced detection and mapping of speed bumps and potholes from smartphone motion sensors.',
     details: `Design a crowdsourced road safety system that uses smartphone accelerometer and gyroscope data to detect, classify, and map unmarked speed bumps and potholes.\n\nThe core technical challenge requires building an algorithm that accurately isolates true road anomalies while filtering out false positives caused by phone handling inside a vehicle. Teams must process telemetry data, implement spatial clustering to verify hazard locations, and deliver a basic dashboard visualising the map-based warning system.`,
   },
   {
-    id: 'SPS-SW-01', society: 'SPS', track: 'SW',
+    id: 'SPS-HW-02', society: 'SPS', track: 'HW',
     title: 'Motion-Robust Heart Rate Tracking from Wrist PPG',
     summary: 'A signal processing pipeline that estimates BPM from noisy wrist PPG using the accelerometer as a motion reference.',
     details: `Smartwatches estimate heart rate using photoplethysmography (PPG), where reflected light varies with blood volume. At rest the signal is clean. During exercise, wrist motion adds artifacts that overlap the heart-rate band (about 0.7-3.5 Hz), so a plain FFT peak-pick often locks onto the arm-swing cadence instead of the pulse.\n\nBuild a signal processing pipeline that estimates heart rate (BPM) every 2 seconds from noisy wrist PPG, using the accelerometer as a reference for motion noise. Everything runs on recorded data and there is no hardware involved.`,
