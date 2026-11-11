@@ -1,0 +1,33 @@
+// team names are shown in capitals on the site whatever case they are typed in here
+export const selectedTeams = [
+  { team: 'ARIGATOALGORITHMS', psId: 'CS-SW-01' },
+  { team: 'HOYSALAKNIGHTS', psId: 'CS-SW-02' },
+  { team: 'TEAM AXTRIX', psId: 'CIS-SW-01' },
+  { team: 'STRAWHATS', psId: 'ITS-SW-01' },
+  { team: 'BRAIN.EXE NOT FOUND', psId: 'ITS-SW-02' },
+  { team: 'NO OFFFENSE', psId: 'GRSS-SW-01' },
+  { team: 'TECHNOVA', psId: 'GRSS-SW-02' },
+  { team: 'NEXTFORGE', psId: 'SPS-HW-04' },
+  { team: 'SONIC TRACE', psId: 'SPS-HW-03' },
+  { team: 'L1R6', psId: 'SPS-SW-01' },
+  { team: 'OVERCLOCKED', psId: 'RAS-HW-01' },
+  { team: 'THE CODE CRAFTERS', psId: 'COMSOC-SW-02' },
+  { team: 'NEXORA', psId: 'COMSOC-SW-01' },
+  { team: 'YANTRA VIDYA', psId: 'COMSOC-HW-04' },
+  { team: 'AKATSUKI', psId: 'COMSOC-HW-02' },
+  { team: 'ORIGIN X', psId: 'COMSOC-HW-03' },
+  { team: 'CROCODILE', psId: 'COMSOC-SW-03' },
+  { team: 'IDEAFORGERS', psId: 'EMBS-HW-01' },
+  { team: 'WINTERVERSE', psId: 'PES-HW-04' },
+  { team: 'STRAWHATS', psId: 'AESS-SW-01' },
+  { team: 'TEAMFORIERS', psId: 'AESS-HW-01' },
+  { team: 'ATHEENA', psId: 'CAS-HW-01' },
+  { team: 'MEOW MECHANICS', psId: 'CAS-HW-02' },
+  { team: 'PINEAPPLEZ', psId: 'WIE-SW-01' },
+  { team: 'DEXTERS', psId: 'WIE-HW-01' },
+  { team: 'DOUBLEWINT', psId: 'PHS-SW-02' },
+  { team: 'TRAGIC BYTES', psId: 'PHS-HW-02' },
+  { team: 'JALAHALLI JAMMERS', psId: 'PHS-HW-01' },
+]
+
+export const openInnovationTeams = ['TEAM ROOM NO 408', 'NOVA']
